@@ -1,93 +1,144 @@
-# Autonomous-Field-Robotics
+# EECE 7150 - Autonomous Field Robotics
 
+## Overview
+This course is designed to survey some of the most important papers, techniques, and algorithms in the field of autonomous field robotics, with a particular emphasis on land-based, aerial, and marine applications. The course includes both theoretical paper presentations and hands-on implementation of the algorithms on Northeastern robots. Topics covered include SLAM, visual odometry, image processing, projective geometry, and deep learning applications in robotics.
 
+---
 
-## Getting started
+## Course Details
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- **Instructor**: Hanumant Singh  
+- **Class Schedule**: Mondays & Wednesdays, 5:50 PM - 7:30 PM  
+- **Office Hours**: TBD  
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+---
 
-## Add your files
+## Grading Breakdown
+- **Paper Presentation**: 20%  
+- **Projects**: 80%
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### Additional Recommendation:
+Students are strongly encouraged to attend robotics-related talks, symposiums, and events at Northeastern University.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/jani.ru/eece7150.git
-git branch -M main
-git push -uf origin main
-```
+---
 
-## Integrate with your tools
+## Textbooks and References
+- **Primary Reference**:  
+  *Multiple View Geometry in Computer Vision* by Hartley and Zisserman (for projective geometry and camera models)
+  
+- **SLAM and Probabilistic Robotics**:  
+  *Probabilistic Robotics* by Thrun, Burgard, and Fox (for SLAM foundations)  
 
-- [ ] [Set up project integrations](https://gitlab.com/jani.ru/eece7150/-/settings/integrations)
+---
 
-## Collaborate with your team
+## Course Topics and Schedule
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+| Lecture # | Topics                                                                                  | Projects/Assignments                   |
+|-----------|-----------------------------------------------------------------------------------------|----------------------------------------|
+| **1**     | ROS background, Driving NU autonomous robots (car, Husky), Monte Carlo techniques       |                                        |
+| **2**     | Projective Geometry in 2D (CH 2 MVG), Homography Mapping (Part 1)                      | Project 1a: Homography Mapping         |
+| **3**     | Projective Geometry in 3D (CH 3 MVG), Estimation of Projective Transforms              |                                        |
+| **4**     | Project 1a Due, Camera Models (CH 6.1 MVG)                                              | Project 1b Assigned                   |
+| **5**     | Filtering Techniques: Alpha-beta filters, 1D Kalman filter                              |                                        |
+| **6**     | Bayesian Filtering, Multivariate Kalman filtering, SLAM, Visual-Inertial Odometry (VIO) |                                        |
+| **7**     | SLAM in 2D, Graph-based representations                                                 |                                        |
+| **8**     | Project 1b Due, Underwater Mosaicking (Pizarro Paper), GTSAM for optimization           | Project 2: Underwater Image Dataset   |
+| **9**     | Sensor Calibration (Multibeam, Camera-IMU, Kalibr Tool)                                |                                        |
+| **10**    | iSAM Paper Review, GTSAM deep dive                                                     |                                        |
+| **11**    | Epipolar Geometry, Fundamental and Essential Matrices                                  | Project 2 Presentations, Project 3a Assigned |
+| **12**    | Continuation of Epipolar Geometry                                                      |                                        |
+| **13**    | Bag of Words                                                                            |                                        |
+| **14**    | ORB-SLAM                                                                               | Project 3b Assigned                   |
+| **15**    | ICP (Iterative Closest Point Algorithm)                                                |                                        |
+| **16**    | Lego Loam (LiDAR-based SLAM)                                                           | Project 3b Due                        |
+| **17**    | VINS Mono, Kimera                                                                      |                                        |
+| **18**    | RTAB-SLAM                                                                              |                                        |
+| **19**    | Role of Machine Learning in Robotics                                                   |                                        |
+| **20-25** | Paper Presentations                                                                    |                                        |
+| **26**    | Final Project Presentations                                                            |                                        |
 
-## Test and Deploy
+---
 
-Use the built-in continuous integration in GitLab.
+## Major Assignments & Homeworks
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### **HW1: Stationary Distribution of a Markov Chain**
+- **Objective**: Simulate a Markov Chain to estimate stationary distribution and validate using a closed-form solution.
+- **Key Steps**:
+  1. Implement a Markov Chain simulator.
+  2. Determine stationary distribution using simulations.
+  3. Compute stationary distribution analytically using eigen decomposition.
+- **Highlights**:
+  - Monte Carlo simulations with reproducible results.
+  - Convergence analysis for probability distribution over transitions.
 
-***
+---
 
-# Editing this README
+### **HW2: Image Replacement and Panoramic Stitching using Homography**
+- **Objective**: Implement homography-based transformations for image replacement and create panoramic mosaics.
+- **Parts**:
+  1. **Image Replacement**:
+      - Replace an image using homography with 4 and 8-point matches.
+      - Comparison of results for robustness and accuracy.
+  2. **Panoramic Stitching**:
+      - Stitch multiple images using homography transformations.
+      - Challenges with cylindrical warping and blending techniques.
+- **Key Learnings**:
+  - Understanding and applying homography matrices.
+  - Using RANSAC for outlier rejection in point matching.
+  - Identifying limitations of linear blending and planar homography.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+---
 
-## Suggestions for a good README
+### **HW3: Deep-Sea Image Registration and Mosaicking using GTSAM**
+- **Objective**: Perform robust image registration and stitching for underwater images using GTSAM for factor graph optimization.
+- **Steps**:
+  1. Image preprocessing with CLAHE for contrast normalization.
+  2. Keypoint detection and descriptor extraction using SIFT.
+  3. Feature matching using FLANN-based matcher.
+  4. RANSAC for homography estimation.
+  5. Construct GTSAM factor graph:
+     - Incorporate noise models for pose estimation.
+     - Optimize with Levenberg-Marquardt to reduce uncertainties.
+  6. Stitch final mosaics using optimized pose transformations.
+- **Observations**:
+  - Initial mosaics using homography showed visible seams and distortions.
+  - GTSAM-based mosaics improved accuracy with optimized pose estimates but blending issues persisted.
+- **Future Improvements**:
+  - Apply exposure compensation for brightness consistency.
+  - Use advanced blending techniques (e.g., multi-resolution splines).
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+---
 
-## Name
-Choose a self-explaining name for your project.
+## Papers Discussed
+1. **Harris Corner Detector**: Harris & Stephens, 1988.
+2. **SIFT**: Lowe, 2004.
+3. **ORB**: Rublee et al., 2011.
+4. **ORB-SLAM**: Mur-Artal & Tardos, 2017.
+5. **Lego-LOAM**: Shan & Englot, 2018.
+6. **VINS-Mono**: Qin et al., 2018.
+7. **Kimera**: Rosinol et al., 2020.
+8. **iSAM2**: Kaess et al., 2012.
+9. **NERFs**: Advanced deep learning for 3D scene reconstruction.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+---
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Key Technologies
+- **Python**: Core programming language.
+- **OpenCV**: For image processing, feature detection, and pose estimation.
+- **GTSAM**: For factor graph optimization and SLAM algorithms.
+- **Matplotlib**: Visualization of graphs, images, and keypoints.
+- **SIFT/FLANN**: Keypoint detection and robust feature matching.
+- **RANSAC**: Outlier rejection for homography estimation.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+---
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Contribution Guidelines
+Students are encouraged to:
+1. Collaborate with peers for discussions on projects and concepts.
+2. Explore additional resources (papers, libraries) to enhance understanding.
+3. Share findings and insights during paper presentations.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+---
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Final Remarks
+This course emphasizes a practical, hands-on approach to mastering key concepts in autonomous robotics, complemented by rigorous theoretical exploration of seminal papers. Students will gain experience in real-world implementations, equipping them with the skills necessary for advanced robotics research and development.
